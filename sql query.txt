@@ -1,0 +1,37 @@
+Question 1
+select moviename, movietype from movie where movietype like 'drama%';
+
+Question 2
+select moviename from movie where heroname="Ayushmann";
+
+Question 3
+select count(moviename) from movie where length>18;
+
+Question 4
+select moviename from movie having min(length);
+
+Question 5
+select * from movie where language like't%';
+
+Question 6
+select moviename,heroname,heroine from movie where length=(select max(length) from movie);
+Question 7
+select moviename, heroname, heroine from movie where releasedate>"2018-03-15";
+
+Question 8
+select count(moviename) from movie where movietype="thriller";
+
+Question 9
+select moviename, heroname, heroine from movie where releasedate<"2018-03-15";
+
+Question 10
+select releasedate from movie where moviename="Zero";
+
+
+Question 11
+select heroname from movie where heroine="Amy";
+
+Question 12
+select count(moviename) from movie where month(releasedate)="10";
+
+Question 13
