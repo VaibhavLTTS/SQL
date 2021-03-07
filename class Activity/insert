@@ -9,7 +9,7 @@ public class InsertDemo {
 	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/vaibhav","root","root");
 	Statement st=con.createStatement();
 
-	st.executeUpdate("insert into kid values(11,'Singh',1000)");
+	st.executeUpdate("insert into vaibhav values(11,'Singh',1000)");
 	System.out.println("Data Inserted successfully");
 	con.close();
 	}
