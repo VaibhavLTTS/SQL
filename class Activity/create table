@@ -10,7 +10,7 @@ public class TableCreate
 	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/vaibhav","root","root");
 	Statement st=con.createStatement();
 
-	st.execute("create table kid (vno int(10),vname varchar(10),vsal int(10))");
+	st.execute("create table vaibhav (vno int(10),vname varchar(10),vsal int(10))");
 	System.out.println("Table created successfully");
 	con.close();
 	}
