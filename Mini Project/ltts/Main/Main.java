@@ -16,10 +16,10 @@ public class Main {
 	public static void main(String args[]) throws Exception
 	{
 		
-	    System.out.println("1.Show Table");
-		System.out.println("2.Insert to Table");
-		System.out.println("3.Update to Table");
-		System.out.println("4.search table");
+	    System.out.println("1.Show the Table");
+		System.out.println("2.Insert into Table");
+		System.out.println("3.Update into Table");
+		System.out.println("4.search the table");
 		Scanner sc=new Scanner(System.in);
 		InputStreamReader r=new InputStreamReader(System.in);
 		 BufferedReader br=new BufferedReader(r);
@@ -48,20 +48,20 @@ public class Main {
 		}
 		if(ch1==2) //insert
 		{
-			System.out.println("-- Which Table you want to Insert");
+			System.out.println(" Which Table you want to Insert");
 			System.out.println("1.Insert into Team");
 			System.out.println("2.Insert into Player");
 			int ch3=sc.nextInt();
 					if(ch3==1) 
 					{
 						
-						System.out.println("Enter the Name of Your Team - ");
+						System.out.println("Enter the Name of Your Team  ");
 						String tname=br.readLine();
-						System.out.println("Enter the TeamOwner - ");
+						System.out.println("Enter the TeamOwner  ");
 						String towner=br.readLine();
-						System.out.println("Enter the TeamID - ");
+						System.out.println("Enter the TeamID ");
 						int tid=Integer.parseInt(br.readLine());
-						System.out.println("Enter the TeamCaptain - ");
+						System.out.println("Enter the TeamCaptain ");
 						String tcap=br.readLine();
 						Team t=new Team(tname,towner,tid,tcap);
 						td.insertTeam(t);
@@ -70,25 +70,25 @@ public class Main {
 					if(ch3==2)
 					{
 						
-						System.out.println("Enter the Player Name - ");
+						System.out.println("Enter the Player Name ");
 						String pname=sc.next();
-						System.out.println("Enter the Player Date of Birth - ");
+						System.out.println("Enter the Player Date of Birth  ");
 						String dob=br.readLine();
 						Date d=Date.valueOf(dob);
-						System.out.println("Enter the Player Skill - ");
+						System.out.println("Enter the Player Skill  ");
 						String pskill=br.readLine();
 						
 						System.out.println("Enter the Player Number of matches");
 						int  nmatch=sc.nextInt();
-						System.out.println("Enter the Player runs - ");
+						System.out.println("Enter the Player runs  ");
 						int  run=sc.nextInt();
 						System.out.println("Enter the Player wickets");
 						int wicket=sc.nextInt();
-						System.out.println("Enter the Player Nationality- ");
+						System.out.println("Enter the Player Nationality ");
 						String pnat=br.readLine();
-						System.out.println("Enter the Player id - ");
+						System.out.println("Enter the Player id  ");
 						int pid=sc.nextInt();
-						System.out.println("Enter the team id - ");
+						System.out.println("Enter the team id  ");
 						int tid=sc.nextInt();
 						Boolean b=pd.insertPlayer(new Player(pname,d,pskill,nmatch,run,wicket,pnat,pid,tid));
 						if(b==true)
@@ -103,8 +103,8 @@ public class Main {
 			if(ch1==3) //update
 			{
 				System.out.println("--Which Team you Want to Update");
-				System.out.println("1. Team Table");
-				System.out.println("2. Player Table");
+				System.out.println("1. Player Table");
+				System.out.println("2. Team Table");
 				int ch4=Integer.parseInt(br.readLine());
 				if(ch4==1) //update Team
 				{
@@ -135,10 +135,23 @@ public class Main {
 				    	System.exit(0);
 			    	}
 			}
+			
+			
+			else if(ch1==4)
+	    	{
+				 System.out.println("Enter the Player Id: "); 
+			    	int pid=Integer.parseInt(br.readLine());
+			    	
+		
+			    	 Playerdao pd1=new Playerdao();
+				        pd1.searchPlayer(pid);
+	    	}
+			
 						
 	sc.close();
 	}
 	
 	}
+
 
 
