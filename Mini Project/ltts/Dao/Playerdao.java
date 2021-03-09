@@ -4,10 +4,8 @@ package com.ltts.Dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.ltts.Dao.*;
 import com.ltts.connection.*;
 import com.ltts.model.Player;
 
@@ -35,7 +33,7 @@ public class Playerdao {
 	{		
 			Connection con= MyConnection.getConnection();
 		
-			Statement st=con.createStatement();
+		
 			PreparedStatement ps=con.prepareStatement("insert into player values(?,?,?,?,?,?,?,?,?)");
 			ps.setString(1,p.getpName());
 			ps.setDate(2,p.getDateOfBirth());
@@ -54,7 +52,7 @@ public class Playerdao {
 	public  boolean updatePlayer(int id,String name) throws Exception
 	{
 		Connection c= MyConnection.getConnection();
-		PreparedStatement ps= c.prepareStatement("UPDATE player SET playerName=? WHERE playerId=?");
+		PreparedStatement ps= c.prepareStatement("UPDATE player SET pname=? WHERE pid=?");
 		ps.setString(1, name);
 		ps.setInt(2, id);
 	
@@ -65,7 +63,7 @@ public class Playerdao {
 	{
 		
 		Connection con=MyConnection.getConnection();
-		PreparedStatement ps=con.prepareStatement("Select p.playerName,t.teamName,t.coachName,TIMESTAMPDIFF(YEAR, dateOfBirth, CURDATE()) AS age from player as p inner join team as t on p.playerId=t.playerId where p.playerId=?");
+		PreparedStatement ps=con.prepareStatement("Select p.pName,t.Teamname,TIMESTAMPDIFF(YEAR, dateOfBirth, CURDATE()) AS age from player as p inner join team as t on p.teamid=t.teamId where p.pid=?");
 		ps.setInt(1, id);
 		ResultSet rs=ps.executeQuery();
 		while(rs.next())
@@ -73,8 +71,8 @@ public class Playerdao {
 			String name=rs.getString(1);
 			String n=rs.getString(2);
 			String cn=rs.getString(3);
-			String age=rs.getString(4);
-			System.out.println(name+" "+n+" "+cn+" "+age);
+			
+			System.out.println(name+" "+n+" "+cn+" ");
 			
 		}
 		
