@@ -24,7 +24,7 @@ public class Teamdao {
 
 		while(rs.next())
 		{
-			System.out.println(rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getInt(3)+"\t"+rs.getString(4));
+			System.out.println(rs.getString(1)+"\t"+rs.getInt(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
 		}
 con.close();
 		
